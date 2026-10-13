@@ -2,4 +2,4 @@
 Searches the web for the best price of any item input
 
 # Progress:
-Finished phase 1, moving on to phase 2
+Phase 2 in progress...
