@@ -1,11 +1,13 @@
+from best_price_checker.models import Listing
+
 def main() -> None:
     listings = [
-        {"store": "bestbuy", "title": "iphone 15 case", "tags": ["iphone15", "case"], "price": 12.99, "shipping": 0.0},
-        {"store": "bestbuy", "title": "24-inch samsung tv", "tags": ["samsung", "tv", "24-inch"], "price": 399.99, "shipping": 0.0},
-        {"store": "bestbuy", "title": "blender", "tags": ["blender", "machine"], "price": 19.99, "shipping": 0.0},
-        {"store": "amazon", "title": "apples", "tags": ["fruit", "red"], "price": 1.9, "shipping": 2.99},
-        {"store": "amazon", "title": "blender", "tags": ["blender", "machine"], "price": 15.99, "shipping": 4.99},
-        {"store": "alibaba", "title": "blender", "tags": ["blender", "machine"], "price": 3.99, "shipping": 2.99}
+        Listing(store="bestbuy", title="iphone 15 case", tags=["iphone15", "case"], price=12.99, shipping=0.0),
+        Listing(store="bestbuy", title="24-inch samsung tv", tags=["samsung", "tv", "24-inch"], price=399.99, shipping=0.0),
+        Listing(store="bestbuy", title="blender", tags=["blender", "machine"], price=19.99, shipping=0.0),
+        Listing(store="amazon", title="apples", tags=["fruit", "red"], price=1.9, shipping=2.99),
+        Listing(store="amazon", title="blender", tags=["blender", "machine"], price=15.99, shipping=4.99),
+        Listing(store="alibaba", title="blender", tags=["blender", "machine"], price=3.99, shipping=2.99)
     ]
 
     search_term = input("Please Enter a Search Term: ")
