@@ -4,10 +4,10 @@ from dataclasses import dataclass
 class Listing:
     store: str
     title: str
-    tags: list
+    tags: list[str]
     price: float
     shipping: float
 
     @property
-    def total_cost(self):
-        self.total_cost = self.price + self.shipping
+    def total_cost(self) -> float:
+        return self.price + self.shipping

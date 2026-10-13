@@ -30,9 +30,8 @@ def main() -> None:
     else:
         matches = []
         for listing in listings:
-            matches_search = all(term in listing["title"] or term in listing["tags"] for term in terms) # a listing matches when every search word is in its title or its tags
-            total = listing["price"] + listing["shipping"]
-            if matches_search and (max_price is None or total <= max_price):
+            matches_search = all(term in listing.title or term in listing.tags for term in terms) # a listing matches when every search word is in its title or its tags
+            if matches_search and (max_price is None or listing.total_cost <= max_price):
                 matches.append(listing)
         if not matches:
             print("No matching items found")
@@ -42,7 +41,6 @@ def main() -> None:
             print(f"{"Store:":<12} | {"Title:":<20} | {"Price:":<13} | {"Shipping:":<13} | {"Total:":<13} {"|":<12}") # if it ain't broke don't fix it
             print("-" * 84 + "|")
 
-            sorted_matches = sorted(matches, key=lambda x: x['price'] + x['shipping'])
+            sorted_matches = sorted(matches, key=lambda x: x.total_cost)
             for listing in sorted_matches:
-                total = listing["price"] + listing["shipping"]
-                print(f"{listing["store"]:<12} | {listing["title"]:<20} | ${listing["price"]:<12.2f} | ${listing["shipping"]:<12.2f} | ${total:<12.2f} {"|":<12}")
+                print(f"{listing.store:<12} | {listing.title:<20} | ${listing.price:<12.2f} | ${listing.shipping:<12.2f} | ${listing.total_cost:<12.2f} {"|":<12}")
